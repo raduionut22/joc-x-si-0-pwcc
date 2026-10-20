@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joc X și 0 (Tic-Tac-Toe)</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <header class="header">
+      <div class="logo">
+        <span class="x-badge">X</span>
+        <span class="divider">și</span>
+        <span class="o-badge">0</span>
+      </div>
+      <p class="subtitle">Clasicul joc Tic-Tac-Toe într-un design modern</p>
+    </header>
+
+    <div class="controls-panel">
+      <!-- Selectare mod de joc -->
+      <div class="control-group">
+        <label for="gameMode">Mod de joc:</label>
+        <div class="custom-select-wrapper">
+          <select id="gameMode" aria-label="Selectează modul de joc">
+            <option value="pvp">👥 2 Jucători (Local)</option>
+            <option value="ai-easy">🤖 vs Calculator (Ușor)</option>
+            <option value="ai-hard" selected>🧠 vs Calculator (Imposibil)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Buton sunet -->
+      <button id="soundToggle" class="btn-icon" title="Comută sunetul" aria-label="Comută sunetul">
+        <span id="soundIcon">🔊</span>
+      </button>
+    </div>
+
+    <!-- Tabela de scor -->
+    <div class="scoreboard">
+      <div class="score-card player-x" id="cardX">
+        <div class="player-label">Jucător X</div>
+        <div class="score-value" id="scoreX">0</div>
+        <div class="turn-indicator">La mutare</div>
+      </div>
+      <div class="score-card draws">
+        <div class="player-label">Egalități</div>
+        <div class="score-value" id="scoreDraws">0</div>
+      </div>
+      <div class="score-card player-o" id="cardO">
+        <div class="player-label">Jucător 0</div>
+        <div class="score-value" id="scoreO">0</div>
+        <div class="turn-indicator">La mutare</div>
+      </div>
+    </div>
+
+    <!-- Mesaj de stare -->
+    <div class="status-banner" id="statusMessage">
+      Rândul lui <strong>X</strong>
+    </div>
+
+    <!-- Tabla de joc -->
+    <div class="board-wrapper">
+      <div class="board" id="board">
+        <button class="cell" data-index="0" aria-label="Căsuța 1"></button>
+        <button class="cell" data-index="1" aria-label="Căsuța 2"></button>
+        <button class="cell" data-index="2" aria-label="Căsuța 3"></button>
+        <button class="cell" data-index="3" aria-label="Căsuța 4"></button>
+        <button class="cell" data-index="4" aria-label="Căsuța 5"></button>
+        <button class="cell" data-index="5" aria-label="Căsuța 6"></button>
+        <button class="cell" data-index="6" aria-label="Căsuța 7"></button>
+        <button class="cell" data-index="7" aria-label="Căsuța 8"></button>
+        <button class="cell" data-index="8" aria-label="Căsuța 9"></button>
+      </div>
+      <svg class="strike-line" id="strikeLine" viewBox="0 0 300 300">
+        <line x1="0" y1="0" x2="0" y2="0" stroke="currentColor" stroke-width="8" stroke-linecap="round" />
+      </svg>
+    </div>
+
+    <!-- Butoane acțiune -->
+    <div class="action-buttons">
+      <button id="restartBtn" class="btn btn-primary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/>
+        </svg>
+        Rundă Nouă
+      </button>
+      <button id="resetScoreBtn" class="btn btn-secondary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+        </svg>
+        Resetează Scor
+      </button>
+    </div>
+
+    <footer class="footer">
+      Realizat pentru distracție rapidă • X și 0
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
